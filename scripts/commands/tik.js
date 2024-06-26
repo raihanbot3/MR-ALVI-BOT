@@ -13,16 +13,16 @@ config: {
         'nayan-server': '',
   }
 },
-  
+
 start: async function({ nayan, events, args }) {
-  
+
   nayan.setMessageReaction("😘", events.messageID, (err) => {
   }, true);
   nayan.sendTypingIndicator(events.threadID, true);
-  
+
   const { messageID, threadID } = events;
 
-  
+
   const { tikdown } = require("nayan-media-downloader")
   const fs = require("fs");
   const axios = require("axios");
@@ -37,18 +37,18 @@ start: async function({ nayan, events, args }) {
   const res = await tikdown(`${content}`);
 console.log(res)
    var file = fs.createWriteStream(__dirname + '/cache/tik.mp4');
-   
+
         const play = res.data.video
    const title = res.data.title
         const rqs = request(encodeURI(`${play}`));
-   
-    
+
+
 
   rqs.pipe(file);  
   file.on('finish', () => {
-    
+
     setTimeout(function() {
-      
+
       return nayan.reply({
         body: `TITLE: ${title}`,
         attachment: fs.createReadStream(__dirname + '/cache/tik.mp4')

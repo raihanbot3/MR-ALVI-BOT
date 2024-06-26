@@ -1,47 +1,33 @@
 module.exports.config = {
-    name: "admin",
-    version: "1.0.0",
-    permission: 0,
-    credits: "nayan",
-    prefix: true,
-    description: "",
-    category: "prefix",
-    usages: "",
-    cooldowns: 5,
-    dependencies: 
-	{
-    "request":"",
-    "fs-extra":"",
-    "axios":""
+  name: "admin",
+  version: "1.0.0",
+  permission: 0,
+  credits: "Rahad",
+  description: "",
+  prefix: true, 
+  category: "Admin information", 
+  usages: "/admin",
+  cooldowns: 5,
+  dependencies: {
+    "request": "",
+    "fs-extra": "",
+    "axios": ""
   }
 };
 module.exports.run = async function({ api,event,args,client,Users,Threads,__GLOBAL,Currencies }) {
 const axios = global.nodemodule["axios"];
 const request = global.nodemodule["request"];
 const fs = global.nodemodule["fs-extra"];
-const time = process.uptime(),
-		hours = Math.floor(time / (60 * 60)),
-		minutes = Math.floor((time % (60 * 60)) / 60),
-		seconds = Math.floor(time % 60);
-const moment = require("moment-timezone");
-var juswa = moment.tz("Asia/Dhaka").format("『D/MM/YYYY』 【hh:mm:ss】");
-  
-var callback = () => api.sendMessage({body:`
---------------------------------------------
-𝐍𝐚𝐦𝐞       : 𝐌𝐨𝐡𝐚𝐦𝐦𝐚𝐝 𝐍𝐚𝐲𝐚𝐧
-𝐅𝐚𝐜𝐞𝐛𝐨𝐨𝐤 : 𝐌𝐨𝐡𝐚𝐦𝐦𝐚𝐝 𝐍𝐚𝐲𝐚𝐧
-𝐑𝐞𝐥𝐢𝐠𝐢𝐨𝐧   : 𝐈𝐬𝐥𝐚𝐦
-𝐏𝐞𝐫𝐦𝐚𝐧𝐞𝐧𝐭 𝐀𝐝𝐝𝐫𝐞𝐬𝐬: 𝐓𝐚𝐧𝐠𝐚𝐢𝐥, 𝐃𝐡𝐚𝐤𝐚
-𝐂𝐮𝐫𝐫𝐞𝐧𝐭 𝐀𝐝𝐝𝐫𝐞𝐬𝐬: 𝐌𝐨𝐲𝐦𝐨𝐧𝐬𝐢𝐧𝐡, 𝐃𝐡𝐚𝐤𝐚 𝐁𝐲𝐩𝐚𝐬𝐬
-𝐆𝐞𝐧𝐝𝐞𝐫.   : 𝐌𝐚𝐥𝐞
-𝐀𝐠𝐞           : 𝟏𝟖+
-𝐑𝐞𝐥𝐚𝐭𝐢𝐨𝐧𝐬𝐡𝐢𝐩 : 𝐒𝐢𝐧𝐠𝐥𝐞
-𝐖𝐨𝐫𝐤        : 𝐒𝐭𝐮𝐝𝐞𝐧𝐭
-𝐆𝐦𝐚𝐢𝐥       : mohammadnayan447@gmail.com
-𝐖𝐡𝐚𝐭𝐬𝐀𝐩𝐩: wa.me/+8801615298449
-𝐓𝐞𝐥𝐞𝐠𝐫𝐚𝐦  : t.me/MOHAMMADNAYAN
-𝐅𝐚𝐜𝐞𝐛𝐨𝐨𝐤 𝐋𝐢𝐧𝐤 : https://www.facebook.com/www.xnxx.com169`,attachment: fs.createReadStream(__dirname + "/cache/1.png")}, event.threadID, () => 
-    fs.unlinkSync(__dirname + "/cache/1.png"));  
-      return request(encodeURI(`https://graph.facebook.com/100000959749712/picture?height=720&width=720&access_token=6628568379%7Cc1e620fa708a1d5696fb991c1bde5662`)).pipe(
-fs.createWriteStream(__dirname+'/cache/1.png')).on('close',() => callback());
+var link =["https://i.imgur.com/x9y0jY0.mp4", 
+
+            "https://i.imgur.com/MMhJVbO.mp4", 
+
+"https://i.imgur.com/Ki3LmhX.mp4",
+
+            "https://i.imgur.com/BAKbg7o.mp4"];
+
+var callback = () => api.sendMessage({body:`𝗗𝗢 𝗡𝗢𝗧 𝗧𝗥𝗨𝗦𝗧 𝗧𝗛𝗘 𝗕𝗢𝗧 𝗢𝗣𝗘𝗥𝗔 𝗧𝗢𝗥\n
+------------------------------------------------\n𝗡𝗮𝗺𝗲       : 𝗠𝗿. 𝗔𝗹𝘃𝗶 𝗖𝗵𝗼𝘄𝗱𝗵𝘂𝗿𝘆\n𝗙𝗮𝗰𝗲𝗯𝗼𝗼𝗸 : 𝗠𝗿.𝗕𝗼𝘀𝘀 𝗔𝗹𝘃𝗶 𝗖𝗵𝗼𝘄𝗱𝗵𝘂𝗿𝘆\n𝗥𝗲𝗹𝗶𝗴𝗶𝗼𝗻    : (𝗜𝘀𝗹𝗮𝗺)\n𝗣𝗲𝗿𝗺𝗮𝗻𝗲𝗻𝘁 𝗔𝗱𝗱𝗿𝗲𝘀𝘀 : (𝗝𝗵𝗲𝗻𝗮𝗶𝗱𝗮𝗵)\n𝗖𝘂𝗿𝗿𝗲𝗻𝘁 𝗔𝗱𝗱𝗿𝗲𝘀𝘀 :𝗝𝗵𝗲𝗻𝗮𝗶𝗱𝗮𝗵\n𝗚𝗲𝗻𝗱𝗲𝗿     : (𝗠𝗮𝗹𝗲)\n𝗔𝗴𝗲            :  (𝗡/𝗮)\n𝗥𝗲𝗹𝗮𝘁𝗶𝗼𝗻𝘀𝗵𝗶𝗽 : (𝗦𝗶𝗻𝗴𝗹𝗲)\n𝗪𝗼𝗿𝗸         : 𝗝𝗼𝗯\n𝗚𝗺𝗮𝗶𝗹        :  alvixhowdhury718@gmail.com\n𝗪𝗵𝗮𝘁𝘀𝗔𝗽𝗽 :  wa.me/+60135647836\n𝗧𝗲𝗹𝗲𝗴𝗿𝗮𝗺  : t.me/mr.alvichowdhury\n𝗙𝗯 𝗹𝗶𝗻𝗸   : https://www.facebook.com/PINIK.MR.ALVI.CHOWDHURY.YOUR.NEXT.VATAR.XAN
+`,attachment: fs.createReadStream(__dirname + "/cache/juswa.mp4")}, event.threadID, () => fs.unlinkSync(__dirname + "/cache/juswa.mp4")); 
+      return request(encodeURI(link[Math.floor(Math.random() * link.length)])).pipe(fs.createWriteStream(__dirname+"/cache/juswa.mp4")).on("close",() => callback());
    };

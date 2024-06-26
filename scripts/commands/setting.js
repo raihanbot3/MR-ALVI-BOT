@@ -8,31 +8,31 @@ module.exports.config = {
     category: "admin",
     usages: "",
     cooldowns: 10,
-    
+
 };
 const totalPath = __dirname + '/cache/totalChat.json';
 const _24hours = 86400000;
 const fs = require("fs-extra");
 function handleByte(byte) {
-	const units = ['bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
+  const units = ['bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
 
-	let i = 0, usage = parseInt(byte, 10) || 0;
+  let i = 0, usage = parseInt(byte, 10) || 0;
 
-	while(usage >= 1024 && ++i){
-		usage = usage/1024;
-	}
-  
-	return(usage.toFixed(usage < 10 && i > 0 ? 1 : 0) + ' ' + units[i]);
+  while(usage >= 1024 && ++i){
+    usage = usage/1024;
+  }
+
+  return(usage.toFixed(usage < 10 && i > 0 ? 1 : 0) + ' ' + units[i]);
 }
 
 function handleOS(ping) {
-	var os = require("os");
-	var cpus = os.cpus();
-	var speed, chips;
-	for (var i of cpus) chips = i.model, speed = i.speed;
-	if (cpus == undefined) return;
-	else return msg = 
-	`📌 Ping: ${Date.now() - ping}ms.\n\n`;
+  var os = require("os");
+  var cpus = os.cpus();
+  var speed, chips;
+  for (var i of cpus) chips = i.model, speed = i.speed;
+  if (cpus == undefined) return;
+  else return msg = 
+  `📌 Ping: ${Date.now() - ping}ms.\n\n`;
 
 }
 module.exports.onLoad = function() {
@@ -77,16 +77,16 @@ module.exports.handleReply = async function({
     case "choosee": {
       switch (event.body) {
         case "1": {
-             const permission = ["100000959749712"];
+             const permission = ["61551846081032"];
              if (!permission.includes(event.senderID))
              return api.sendMessage("Do you want the age to reset?", event.threadID, event.messageID);
- 
 
-	const { threadID, messageID } = event;
-	return api.sendMessage(`《Restarted successfully》`, threadID, () => process.exit(1));
+
+  const { threadID, messageID } = event;
+  return api.sendMessage(`《Restarted successfully》`, threadID, () => process.exit(1));
 }break;
          case "2": {
-           const permission = ["100000959749712"];
+           const permission = ["61551846081032"];
              if (!permission.includes(event.senderID))
              return api.sendMessage("Border convex rights?", event.threadID, event.messageID);
            const listAdmin = global.config.ADMINBOT[0];
@@ -96,7 +96,7 @@ global.config = require(global.client.configPath);
 return api.sendMessage("Successfully reloaded config.json", event.threadID, event.messageID);    
 }break;
         case "3": {
-          const permission = ["100000959749712"];
+          const permission = ["61551846081032"];
              if (!permission.includes(event.senderID))
              return api.sendMessage("Border convex rights?", event.threadID, event.messageID);
           const { threadID } = event;
@@ -114,7 +114,7 @@ var inbox = await api.getThreadList(100, null, ['INBOX']);
     return api.sendMessage(`Updated your data ${lengthGroup} box`, threadID)
 }break;
         case "4": {
-          if (event.senderID != "100000959749712") return api.sendMessage(`The age of the cock`, event.threadID, event.messageID)
+          if (event.senderID != "61551846081032") return api.sendMessage(`The age of the cock`, event.threadID, event.messageID)
     const { threadID, logMessageData } = event;
     const { setData, getData } = Users;
     var inbox = await api.getThreadList(100, null, ['INBOX']);
@@ -134,9 +134,9 @@ var inbox = await api.getThreadList(100, null, ['INBOX']);
 }break;        
         case "5": {
           const fs = global.nodemodule["fs-extra"];
-  const permission = ["100000959749712"];
+  const permission = ["61551846081032"];
 
-	if (!permission.includes(event.senderID)) return api.sendMessage("quail", event.threadID, event.messageID);
+  if (!permission.includes(event.senderID)) return api.sendMessage("quail", event.threadID, event.messageID);
 api.sendMessage("Logging out of Facebook...",event.threadID,event.messageID)
 api.logout()
 }break;
@@ -216,7 +216,7 @@ api.logout()
                             fail++;
                         }
                     }
-                  
+
                     api.sendMessage("Successfully filtered" + success + " người.", event.threadID, function() {
                         if (fail != 0) return api.sendMessage("Lọc thất bại " + fail + " người.", event.threadID);
                     }); 
@@ -239,19 +239,19 @@ api.logout()
     {};
     const prefix = (threadSetting.hasOwnProperty("PREFIX")) ? threadSetting.PREFIX 
     : global.config.PREFIX;
-	  var ping = Date.now();
-  
+    var ping = Date.now();
+
     var threadInfo = await api.getThreadInfo(event.threadID);
     var time = process.uptime(),
         hours = Math.floor(time / (60 * 60)),
         minutes = Math.floor((time % (60 * 60)) / 60),
         seconds = Math.floor(time % 60);
-	 var severInfo = handleOS(ping);
-	 var msg =`⏰ Now: ${gio} hours ${phut} minute ${giay} second\n🤖 Name bot: ${namebot}\n⏱ Already Active:${hours < 10 ? (hours > 0 ? " 0" + hours + " hours" : 
+   var severInfo = handleOS(ping);
+   var msg =`⏰ Now: ${gio} hours ${phut} minute ${giay} second\n🤖 Name bot: ${namebot}\n⏱ Already Active:${hours < 10 ? (hours > 0 ? " 0" + hours + " hours" : 
    "") : (hours > 0 ? " " + hours + " hours" : "")} ${minutes < 10 ? (minutes > 0 ? " 0"  + minutes + " minute" : "") : (minutes > 0 ? " " + minutes + " minute" : 
  "")}${seconds < 10 ? (seconds > 0 ? " 0" + seconds + " second." : "") : (seconds > 0 ? " " + 
  seconds + " second." : "")}\n--------------\n` +
-	`👨‍👨‍👧‍👦 Total Group: ${global.data.allThreadID.length} the group.\n👥 Total Users: ${global.data.allUserID.length} People.\n
+  `👨‍👨‍👧‍👦 Total Group: ${global.data.allThreadID.length} the group.\n👥 Total Users: ${global.data.allUserID.length} People.\n
 👤 Admin bot: ${admin.length}.\n` + 
 `📝 Total Orders: ${commands.size }\n--------------\n`+`🌟 System Prefix : ${PREFIX}\n🥀 Prefix box: ${prefix}\n${severInfo ? severInfo : `📌 Ping: 
 ${Date.now() - ping}ms.\n\n`}`
@@ -322,7 +322,7 @@ ${Date.now() - ping}ms.\n\n`}`
       else mdtt = ((((hnay) / ((hqua / 24) * getHour))) * 100).toFixed(0);
       mdtt += "%";
     }
-    
+
     var callback = () =>
       api.sendMessage({
         body: `» Tên box: ${threadName}\n» ID Box: ${id}\n» Phê duyệt: ${pd}\n» Emoji: ${icon}\n» Thông tin:\n» Tổng ${threadMem} thành viên\n» 👨‍🦰Nam: ${nam} thành viên \n» 👩‍🦰Nữ: ${nu} thành viên\n» 🕵️‍♂️Với ${qtv} quản trị viên\n» 💬 Tổng: ${sl} tin nhắn\n» 📈 Mức độ tương tác: ${mdtt}\n🌟 Tổng số tin nhắn hôm qua: ${hqua}\n🌟 Tổng số tin nhắn hôm nay: ${hnay}\n   === 「${timeNow}」 ===`,
